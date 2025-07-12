@@ -24,4 +24,3 @@ The project guideline on Boot.dev states approximately 20-40 hours should be spe
 
 ### Actual duration
 This will be updated once the project is finished.
-
