@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxfbkuv5scyfr"]
+[gd_scene load_steps=3 format=3 uid="uid://cxfbkuv5scyfr"]
 
 [ext_resource type="Script" uid="uid://h1s0py8que44" path="res://scripts/world/main.gd" id="1_0wkb6"]
+[ext_resource type="Script" uid="uid://be0qnxv6ea36r" path="res://scripts/systems/item_manager.gd" id="2_mli2r"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -13,9 +14,12 @@ script = ExtResource("1_0wkb6")
 
 [node name="GenerateButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 125.0
-offset_top = 447.0
-offset_right = 313.0
-offset_bottom = 510.0
+offset_left = 780.0
+offset_top = 446.0
+offset_right = 968.0
+offset_bottom = 509.0
 theme_override_font_sizes/font_size = 40
 text = "Generate"
+
+[node name="ItemManager" type="Node" parent="."]
+script = ExtResource("2_mli2r")
