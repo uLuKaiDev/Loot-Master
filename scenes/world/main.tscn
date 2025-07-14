@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxfbkuv5scyfr"]
+[gd_scene load_steps=4 format=3 uid="uid://cxfbkuv5scyfr"]
 
 [ext_resource type="Script" uid="uid://h1s0py8que44" path="res://scripts/world/main.gd" id="1_0wkb6"]
 [ext_resource type="Script" uid="uid://be0qnxv6ea36r" path="res://scripts/systems/item_manager.gd" id="2_mli2r"]
+[ext_resource type="Script" uid="uid://co6n7qljf1vun" path="res://scripts/systems/ui_manager.gd" id="3_f8fyy"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -23,3 +24,7 @@ text = "Generate"
 
 [node name="ItemManager" type="Node" parent="."]
 script = ExtResource("2_mli2r")
+
+[node name="UIManager" type="Node" parent="."]
+script = ExtResource("3_f8fyy")
+container_node_path = NodePath("..")

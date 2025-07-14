@@ -1,9 +1,26 @@
 extends Node
 class_name ItemManager
 
-@onready var names = ["Ashbrand", "Stormfang", "Whisperfang", "Oathkeeper", "Runeblade"]
+signal item_box_ready(box: Control)
+
+@onready var names = ["Ashbrand", "Stormfang", "Whisperfang", "Oathkeeper", "Runeblade", "Very Long sword Of Naming Test Purposes"]
 @onready var reqs = ["Strength", "Dexterity", "Intelligence", "Spirit"]
 @onready var stats = ["+%d Fire Damage", "+%d Attack Speed", "+%d Life Leech", "+%d Mana Regen"]
+@onready var item_box_scene: PackedScene = preload("res://scenes/ui/item_box.tscn")
+
+var current_item_box: Node = null
+
+func generate_item_box() -> void:
+	if current_item_box:
+		current_item_box.queue_free()
+		current_item_box = null
+	
+	var new_box := item_box_scene.instantiate()
+	current_item_box = new_box
+	new_box.set_item(generate_item_data())
+	
+	
+	emit_signal("item_box_ready", new_box)
 
 func generate_item_data() -> ItemData:
 	var item = ItemData.new()
