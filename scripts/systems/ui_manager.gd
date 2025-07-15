@@ -9,8 +9,6 @@ func display_item_box(box: Control) -> void:
 	
 	box.resize_to_contents()
 	var content_size = box.get_combined_minimum_size()
-	print("Box size(from children): ", content_size)
-	
 	box.position = _get_safe_position(content_size)
 
 func _get_safe_position(size: Vector2) -> Vector2:

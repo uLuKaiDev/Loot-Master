@@ -29,6 +29,13 @@ theme_override_font_sizes/font_size = 40
 text = "name"
 horizontal_alignment = 1
 
+[node name="Rarity" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Rarity"
+horizontal_alignment = 1
+structured_text_bidi_override = 6
+
 [node name="Requirements" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30

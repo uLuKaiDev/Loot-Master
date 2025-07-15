@@ -13,14 +13,30 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0wkb6")
 
-[node name="GenerateButton" type="Button" parent="."]
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="UIRoot" type="Control" parent="UILayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UILayer/UIRoot"]
 layout_mode = 0
-offset_left = 780.0
-offset_top = 446.0
-offset_right = 968.0
-offset_bottom = 509.0
+offset_left = 777.0
+offset_top = 466.0
+offset_right = 965.0
+offset_bottom = 529.0
+
+[node name="GenerateButton" type="Button" parent="UILayer/UIRoot/VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Generate"
+
+[node name="EnemySelector" type="OptionButton" parent="UILayer/UIRoot/VBoxContainer"]
+layout_mode = 2
 
 [node name="ItemManager" type="Node" parent="."]
 script = ExtResource("2_mli2r")

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyType" load_steps=2 format=3 uid="uid://dvjbv33tm32wh"]
+
+[ext_resource type="Script" uid="uid://dppx5fy8kyfhc" path="res://scripts/resources/enemy_type.gd" id="1_r8i88"]
+
+[resource]
+script = ExtResource("1_r8i88")
+name = "Elite"
+rarity_weights = {
+"common": 40,
+"epic": 8,
+"rare": 20,
+"uncommon": 30,
+"unique": 2
+}
+metadata/_custom_type_script = "uid://dppx5fy8kyfhc"
