@@ -37,10 +37,11 @@ text = "Generate"
 
 [node name="EnemySelector" type="OptionButton" parent="UILayer/UIRoot/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 
 [node name="ItemManager" type="Node" parent="."]
 script = ExtResource("2_mli2r")
 
 [node name="UIManager" type="Node" parent="."]
 script = ExtResource("3_f8fyy")
-container_node_path = NodePath("..")
+container_node_path = NodePath("../UILayer")

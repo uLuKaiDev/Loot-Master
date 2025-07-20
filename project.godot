@@ -14,3 +14,8 @@ config/name="Loot Master"
 run/main_scene="uid://cxfbkuv5scyfr"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1728
+window/size/viewport_height=972
