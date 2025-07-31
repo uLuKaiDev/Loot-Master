@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="StatAffix" load_steps=2 format=3 uid="uid://blcvw7q5gq372"]
+
+[ext_resource type="Script" uid="uid://b8uhwixvebqyu" path="res://scripts/resources/affixes/stat_affix.gd" id="1_fwupe"]
+
+[resource]
+script = ExtResource("1_fwupe")
+id = "fire_damage"
+stat_name = "Fire Damage"
+format_string = "+%d Fire Damage"
+rarity_weights = {
+"common": 40,
+"epic": 90,
+"rare": 80,
+"uncommon": 60
+}
+tiers = [{
+"max_value": 10,
+"min_value": 5,
+"name_prefix": "Sparking",
+"name_suffix": "of Sparks",
+"tier": 1
+}, {
+"max_value": 20,
+"min_value": 11,
+"name_prefix": "Smouldering",
+"name_suffix": "of Flames",
+"tier": 2
+}, {
+"max_value": 35,
+"min_value": 21,
+"name_prefix": "Blazing",
+"name_suffix": "of Magma",
+"tier": 3
+}]
+metadata/_custom_type_script = "uid://b8uhwixvebqyu"

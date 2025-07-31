@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="StatAffix" load_steps=2 format=3 uid="uid://dhfnpo4i2uigh"]
+
+[ext_resource type="Script" uid="uid://b8uhwixvebqyu" path="res://scripts/resources/affixes/stat_affix.gd" id="1_hp7fl"]
+
+[resource]
+script = ExtResource("1_hp7fl")
+id = "frost_damage"
+stat_name = "Frost Damage"
+format_string = "+%d Frost Damage"
+rarity_weights = {
+"common": 35,
+"epic": 55,
+"rare": 75,
+"uncommon": 60
+}
+tiers = [{
+"max_value": 9,
+"min_value": 4,
+"name_prefix": "Chilled",
+"name_suffix": "of Frost",
+"tier": 1
+}, {
+"max_value": 18,
+"min_value": 10,
+"name_prefix": "Freezing",
+"name_suffix": "of Ice",
+"tier": 2
+}, {
+"max_value": 30,
+"min_value": 19,
+"name_prefix": "Glacial",
+"name_suffix": "of the Glacier",
+"tier": 3
+}]
+metadata/_custom_type_script = "uid://b8uhwixvebqyu"

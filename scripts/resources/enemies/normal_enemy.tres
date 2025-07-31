@@ -1,10 +1,13 @@
-[gd_resource type="Resource" script_class="EnemyType" load_steps=2 format=3 uid="uid://ckcn6n1jptyng"]
+[gd_resource type="Resource" script_class="EnemyType" load_steps=3 format=3 uid="uid://ckcn6n1jptyng"]
 
-[ext_resource type="Script" uid="uid://dppx5fy8kyfhc" path="res://scripts/resources/enemy_type.gd" id="1_j1ahj"]
+[ext_resource type="Script" uid="uid://dppx5fy8kyfhc" path="res://scripts/resources/enemies/enemy_type.gd" id="1_j1ahj"]
+[ext_resource type="Resource" uid="uid://48ek1bye0ix5" path="res://scripts/resources/item_pools/starter_loot_pool.tres" id="1_phkvt"]
 
 [resource]
 script = ExtResource("1_j1ahj")
 name = "Normal"
+drop_chance = 0.1
+drop_pool = ExtResource("1_phkvt")
 rarity_weights = {
 "common": 70,
 "epic": 2,

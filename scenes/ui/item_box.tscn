@@ -27,7 +27,7 @@ layout_mode = 2
 [node name="Rarity" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Rarity"
+text = "rarity"
 horizontal_alignment = 1
 structured_text_bidi_override = 6
 
@@ -47,4 +47,13 @@ layout_mode = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "statistics"
+horizontal_alignment = 1
+
+[node name="HSeparator4" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="FlavourText" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "flavour_text"
 horizontal_alignment = 1

@@ -1,7 +1,20 @@
-extends Node
 class_name ItemManager
+extends Node
 
 signal item_box_ready(box: Control)
+
+const RARITY_ORDER: Array = [
+	"common",
+	"uncommon",
+	"rare",
+	"epic",
+	"unique"
+]
+
+@export var spawn_field_path: NodePath
+
+var current_item_box: Node = null
+var spawned_item_count: int = 0
 
 @onready var names = ["Ashbrand", "Stormfang", "Whisperfang", "Oathkeeper", "Runeblade", "Deluxio"]
 @onready var reqs = ["Strength", "Dexterity", "Intelligence", "Spirit"]
@@ -17,18 +30,40 @@ signal item_box_ready(box: Control)
 	"+%d Maximum Health",
 	"+%d Critical Hit Chance"
 ]
-
 @onready var item_box_scene: PackedScene = preload("res://scenes/ui/item_box.tscn")
+@onready var stat_affixes: Array = []
+@onready var item_spawn_field: Control = get_node(spawn_field_path)
 
-var current_item_box: Node = null
+func _ready() -> void:
+	stat_affixes = StatAffixLoader.load_all_affixes()
 
-const RARITY_ORDER: Array = [
-	"common",
-	"uncommon",
-	"rare",
-	"epic",
-	"unique"
-]
+func _select_affixes(rarity: String, affix_pool: Array, max_affixes := 3) -> Array:
+	var filtered: Array = []
+	
+	for affix in affix_pool:
+		if affix.rarity_weights.has(rarity):
+			filtered.append(affix)
+	
+	var selected: Array = []
+	var pool := filtered.duplicate()
+	
+	while selected.size() < max_affixes and pool.size() > 0:
+		var total_weight = 0
+		for affix in pool:
+			total_weight += affix.weight
+		
+		var roll = randi() % total_weight
+		var running_total = 0
+		
+		for i in range (pool.size()):
+			var affix = pool[i]
+			running_total += affix.weight
+			if roll < running_total:
+				selected.append(affix)
+				pool.remove_at(i)
+				break
+	
+	return selected
 
 func generate_item_box(enemy: EnemyType) -> void:
 	if current_item_box:
@@ -123,3 +158,46 @@ func _roll_rarity(weights: Dictionary) -> String:
 	
 	# Fallback scenario
 	return "common"
+
+func try_spawn_drop(enemy: EnemyType) -> void:
+	if randf() > enemy.drop_chance:
+		print("No item dropped")
+		return
+	
+	var item_scene: PackedScene = _select_base_item(enemy.drop_pool)
+	if item_scene == null:
+		print("No valid item found in drop pool")
+		return
+	
+	var item_data = generate_item_data(enemy)
+	
+	var item_instance = item_scene.instantiate()
+	if item_instance is ItemBase:
+		item_instance.item_data = item_data
+	
+	add_item_to_spawn(item_instance)
+	
+func _select_base_item(pool: ItemDropPool) -> PackedScene:
+	var weighted_list: Array[PackedScene] = []
+	
+	for category in pool.categories:
+		var weight = pool.tag_weights.get(category.category_name, 1)
+		for scene in category.scenes:
+			for i in weight:
+				weighted_list.append(scene)
+	
+	if weighted_list.is_empty():
+		return null
+	return weighted_list[randi() % weighted_list.size()]
+
+func add_item_to_spawn(item_instance: Node2D) -> void:
+	var start_pos = Vector2(64, 64)
+	var spacing = Vector2(128, 128)
+	var columns = 5
+	
+	var col = spawned_item_count % columns
+	var row = spawned_item_count / columns
+	
+	item_instance.position = start_pos + Vector2(col * spacing.x, row * spacing.y)
+	item_spawn_field.add_child(item_instance)
+	spawned_item_count += 1

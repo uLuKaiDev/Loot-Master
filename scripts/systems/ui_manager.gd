@@ -3,6 +3,7 @@ extends Node
 @export var container_node_path: NodePath
 @onready var container: Node = get_node(container_node_path)
 
+
 func display_item_box(box: Control) -> void:
 	container.add_child(box)
 	await get_tree().process_frame

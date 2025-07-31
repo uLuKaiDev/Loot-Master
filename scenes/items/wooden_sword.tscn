@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5rnjqvqojev3"]
+
+[ext_resource type="Script" uid="uid://5w26gtndnwg7" path="res://scripts/items/item_base.gd" id="1_q13vy"]
+[ext_resource type="Texture2D" uid="uid://c5fwt2lwsnh8g" path="res://assets/icons/32x32_PixelWeapons_Free.png" id="2_og3jn"]
+
+[node name="WoodenSword" type="Area2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_q13vy")
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("2_og3jn")
+hframes = 14
+vframes = 14
+region_rect = Rect2(32, 32, 0, 0)

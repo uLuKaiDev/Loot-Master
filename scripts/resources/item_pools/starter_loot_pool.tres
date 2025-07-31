@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="ItemDropPool" load_steps=9 format=3 uid="uid://48ek1bye0ix5"]
+
+[ext_resource type="Script" uid="uid://vjoriave5etj" path="res://scripts/items/item_category.gd" id="1_aa0sp"]
+[ext_resource type="PackedScene" uid="uid://b5rnjqvqojev3" path="res://scenes/items/wooden_sword.tscn" id="2_212yh"]
+[ext_resource type="PackedScene" uid="uid://dwquu3i81gcfm" path="res://scenes/items/wooden_spear.tscn" id="3_64685"]
+[ext_resource type="PackedScene" uid="uid://b4q2gvgr01flp" path="res://scenes/items/wooden_wand.tscn" id="4_a734b"]
+[ext_resource type="Script" uid="uid://djekr68ehjo4k" path="res://scripts/resources/item_pools/item_drop_pool.gd" id="5_gg60i"]
+
+[sub_resource type="Resource" id="Resource_v16t1"]
+script = ExtResource("1_aa0sp")
+category_name = "sword"
+scenes = Array[PackedScene]([ExtResource("2_212yh")])
+metadata/_custom_type_script = "uid://vjoriave5etj"
+
+[sub_resource type="Resource" id="Resource_6aqvb"]
+script = ExtResource("1_aa0sp")
+category_name = "spear"
+scenes = Array[PackedScene]([ExtResource("3_64685")])
+metadata/_custom_type_script = "uid://vjoriave5etj"
+
+[sub_resource type="Resource" id="Resource_kefxf"]
+script = ExtResource("1_aa0sp")
+category_name = "wand"
+scenes = Array[PackedScene]([ExtResource("4_a734b")])
+metadata/_custom_type_script = "uid://vjoriave5etj"
+
+[resource]
+script = ExtResource("5_gg60i")
+categories = Array[ExtResource("1_aa0sp")]([SubResource("Resource_v16t1"), SubResource("Resource_6aqvb"), SubResource("Resource_kefxf")])
+tag_weights = {
+"spear": 30,
+"sword": 60,
+"wand": 10
+}
+metadata/_custom_type_script = "uid://djekr68ehjo4k"

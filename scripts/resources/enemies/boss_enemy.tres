@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="EnemyType" load_steps=2 format=3 uid="uid://co66gccgt1cck"]
+[gd_resource type="Resource" script_class="EnemyType" load_steps=3 format=3 uid="uid://co66gccgt1cck"]
 
-[ext_resource type="Script" uid="uid://dppx5fy8kyfhc" path="res://scripts/resources/enemy_type.gd" id="1_gp8bw"]
+[ext_resource type="Resource" uid="uid://cgsdlccjefqn1" path="res://scripts/resources/item_pools/magic_loot_pool.tres" id="1_i6uwj"]
+[ext_resource type="Script" uid="uid://dppx5fy8kyfhc" path="res://scripts/resources/enemies/enemy_type.gd" id="2_jh58b"]
 
 [resource]
-script = ExtResource("1_gp8bw")
+script = ExtResource("2_jh58b")
 name = "Boss"
 rarity_weights = {
 "common": 5,
@@ -12,4 +13,6 @@ rarity_weights = {
 "uncommon": 10,
 "unique": 15
 }
+drop_chance = 0.9
+drop_pool = ExtResource("1_i6uwj")
 metadata/_custom_type_script = "uid://dppx5fy8kyfhc"

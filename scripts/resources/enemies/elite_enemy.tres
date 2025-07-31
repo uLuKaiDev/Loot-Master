@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="EnemyType" load_steps=2 format=3 uid="uid://dvjbv33tm32wh"]
+[gd_resource type="Resource" script_class="EnemyType" load_steps=3 format=3 uid="uid://dvjbv33tm32wh"]
 
-[ext_resource type="Script" uid="uid://dppx5fy8kyfhc" path="res://scripts/resources/enemy_type.gd" id="1_r8i88"]
+[ext_resource type="Resource" uid="uid://48ek1bye0ix5" path="res://scripts/resources/item_pools/starter_loot_pool.tres" id="1_6b1jw"]
+[ext_resource type="Script" uid="uid://dppx5fy8kyfhc" path="res://scripts/resources/enemies/enemy_type.gd" id="1_r8i88"]
 
 [resource]
 script = ExtResource("1_r8i88")
@@ -12,4 +13,6 @@ rarity_weights = {
 "uncommon": 30,
 "unique": 2
 }
+drop_chance = 0.6
+drop_pool = ExtResource("1_6b1jw")
 metadata/_custom_type_script = "uid://dppx5fy8kyfhc"
