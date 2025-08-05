@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwquu3i81gcfm"]
+[gd_scene load_steps=4 format=3 uid="uid://dwquu3i81gcfm"]
 
 [ext_resource type="Script" uid="uid://5w26gtndnwg7" path="res://scripts/items/item_base.gd" id="1_cfv8a"]
 [ext_resource type="Texture2D" uid="uid://c5fwt2lwsnh8g" path="res://assets/icons/32x32_PixelWeapons_Free.png" id="2_r2rw0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cfv8a"]
+size = Vector2(26, 26)
 
 [node name="WoodenSpear" type="Area2D"]
 scale = Vector2(4, 4)
@@ -13,3 +16,7 @@ hframes = 14
 vframes = 14
 frame = 1
 region_rect = Rect2(32, 32, 0, 0)
+
+[node name="TooltipRegion" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_cfv8a")

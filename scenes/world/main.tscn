@@ -1,27 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxfbkuv5scyfr"]
+[gd_scene load_steps=5 format=3 uid="uid://cxfbkuv5scyfr"]
 
 [ext_resource type="Script" uid="uid://h1s0py8que44" path="res://scripts/world/main.gd" id="1_0wkb6"]
 [ext_resource type="Script" uid="uid://be0qnxv6ea36r" path="res://scripts/systems/item_manager.gd" id="2_mli2r"]
+[ext_resource type="PackedScene" uid="uid://c2fockiiqcs74" path="res://scenes/ui/item_box.tscn" id="2_wbupf"]
 [ext_resource type="Script" uid="uid://co6n7qljf1vun" path="res://scripts/systems/ui_manager.gd" id="3_f8fyy"]
 
-[node name="Main" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Main" type="Node"]
 script = ExtResource("1_0wkb6")
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 
-[node name="ItemSpawnField" type="ColorRect" parent="UILayer"]
-offset_left = 725.0
-offset_top = 98.0
-offset_right = 1365.0
-offset_bottom = 610.0
-tooltip_text = "Items will show up here"
-color = Color(0.176419, 0.176419, 0.176419, 0.560784)
+[node name="GlobalItemBox" parent="UILayer" instance=ExtResource("2_wbupf")]
+visible = false
+z_index = 10
+mouse_filter = 2
+
+[node name="ItemSpawnField" type="Node2D" parent="UILayer"]
+position = Vector2(723, 224)
 
 [node name="UIRoot" type="Control" parent="UILayer"]
 layout_mode = 3
@@ -30,6 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UILayer/UIRoot"]
@@ -54,3 +50,4 @@ spawn_field_path = NodePath("../UILayer/ItemSpawnField")
 [node name="UIManager" type="Node" parent="."]
 script = ExtResource("3_f8fyy")
 container_node_path = NodePath("../UILayer")
+global_tooltip_node_path = NodePath("../UILayer/GlobalItemBox")

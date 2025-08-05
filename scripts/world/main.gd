@@ -1,4 +1,4 @@
-extends Control
+extends Node
 
 @onready var generate_button: Button = $UILayer/UIRoot/VBoxContainer/GenerateButton
 @onready var enemy_selector: OptionButton = $UILayer/UIRoot/VBoxContainer/EnemySelector

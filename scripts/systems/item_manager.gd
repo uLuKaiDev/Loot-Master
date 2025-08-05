@@ -32,7 +32,8 @@ var spawned_item_count: int = 0
 ]
 @onready var item_box_scene: PackedScene = preload("res://scenes/ui/item_box.tscn")
 @onready var stat_affixes: Array = []
-@onready var item_spawn_field: Control = get_node(spawn_field_path)
+@onready var item_spawn_field: Node2D = get_node(spawn_field_path)
+@onready var ui_manager: Node = $"../UIManager"
 
 func _ready() -> void:
 	stat_affixes = StatAffixLoader.load_all_affixes()
@@ -176,7 +177,8 @@ func try_spawn_drop(enemy: EnemyType) -> void:
 		item_instance.item_data = item_data
 	
 	add_item_to_spawn(item_instance)
-	
+	ui_manager.connect_hover_signals(item_instance)
+
 func _select_base_item(pool: ItemDropPool) -> PackedScene:
 	var weighted_list: Array[PackedScene] = []
 	
